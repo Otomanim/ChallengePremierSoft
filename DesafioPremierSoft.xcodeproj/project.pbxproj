@@ -97,12 +97,9 @@
 		2EF030FC2BD7F60000F597AA /* DesafioPremierSoft */ = {
 			isa = PBXGroup;
 			children = (
-				2EF030FD2BD7F60000F597AA /* AppDelegate.swift */,
-				2EF030FF2BD7F60000F597AA /* SceneDelegate.swift */,
-				2EF031012BD7F60000F597AA /* ViewController.swift */,
-				2EF031062BD7F60200F597AA /* Assets.xcassets */,
-				2EF031082BD7F60200F597AA /* LaunchScreen.storyboard */,
-				2EF0310B2BD7F60200F597AA /* Info.plist */,
+				2EF0312F2BD7F92B00F597AA /* Scenes */,
+				2EF0312E2BD7F8BC00F597AA /* Sources */,
+				2EF0312D2BD7F80500F597AA /* Resources */,
 			);
 			path = DesafioPremierSoft;
 			sourceTree = "<group>";
@@ -122,6 +119,33 @@
 				2EF031202BD7F60300F597AA /* DesafioPremierSoftUITestsLaunchTests.swift */,
 			);
 			path = DesafioPremierSoftUITests;
+			sourceTree = "<group>";
+		};
+		2EF0312D2BD7F80500F597AA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2EF031062BD7F60200F597AA /* Assets.xcassets */,
+				2EF031082BD7F60200F597AA /* LaunchScreen.storyboard */,
+				2EF0310B2BD7F60200F597AA /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		2EF0312E2BD7F8BC00F597AA /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				2EF030FD2BD7F60000F597AA /* AppDelegate.swift */,
+				2EF030FF2BD7F60000F597AA /* SceneDelegate.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		2EF0312F2BD7F92B00F597AA /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				2EF031012BD7F60000F597AA /* ViewController.swift */,
+			);
+			path = Scenes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
