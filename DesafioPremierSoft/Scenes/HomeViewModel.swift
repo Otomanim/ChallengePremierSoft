@@ -7,6 +7,10 @@
 
 import Foundation
 
+protocol HomeViewModeling {
+    
+}
+
 class HomeViewModel {
     
 }
