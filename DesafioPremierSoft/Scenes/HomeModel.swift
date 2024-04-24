@@ -7,6 +7,10 @@
 
 import Foundation
 
-class HomeModel {
+struct Candidate {
     
+    let name: String
+    let vacancy: String
+    let age: String
+    let state: String
 }
