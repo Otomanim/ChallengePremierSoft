@@ -13,4 +13,10 @@ protocol HomeViewModeling {
 
 class HomeViewModel {
     
+    private let networkService: NetworkServicing
+    
+    init(networkService: NetworkServicing) {
+        self.networkService = networkService
+    }
+
 }
