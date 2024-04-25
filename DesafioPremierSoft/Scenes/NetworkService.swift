@@ -7,11 +7,11 @@
 
 import Foundation
 
-protocol NetworkServicing: AnyObject {
+protocol NetworkServiceProtocol: AnyObject {
     func getCandidates() -> [Candidate]
 }
 
-class NetworkService: NetworkServicing {
+class NetworkService: NetworkServiceProtocol {
     
     func getCandidates() -> [Candidate] {
             var candidates: [Candidate] = []
