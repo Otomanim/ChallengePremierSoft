@@ -7,11 +7,18 @@
 
 import Foundation
 
-protocol HomeViewModelProtocol {
-    func calculatePercentages(completion: @escaping (String, String, String) -> Void)
+protocol HomeViewModelProtocol: AnyObject {
+    func calculatePercentages() -> (String, String, String)
+    func findInstructors()-> (String, String)
+    func youngerCandidateApi() -> String
+    func olderIos() -> String
+    func statesList() -> Int
+    func middleAgesQA() -> Double
+    func sumAgeApi() -> Int
+    func fetchData()
 }
 
-class HomeViewModel {
+class HomeViewModel: HomeViewModelProtocol {
     
     private var modelCandidates: [Candidate] = []
     
@@ -21,11 +28,73 @@ class HomeViewModel {
         self.networkService = networkService
     }
     
-    private func fetchData() {
+    func fetchData() {
         self.modelCandidates = networkService.getCandidates()
     }
     
-    func calculatePercentages(completion: @escaping (String, String, String) -> Void) {
+    func olderIos() -> String {
+        var nameOlder = ""
+        var olderAgeIos = 0
+        for i in modelCandidates {
+            if i.Vaga == "iOS" && olderAgeIos < makeFirstWordAndInteger(i.Idade) {
+                olderAgeIos = makeFirstWordAndInteger(i.Idade)
+                nameOlder = i.Nome
+            }
+        }
+        return nameOlder
+    }
+    
+    func sumAgeApi() -> Int {
+        var sumAgeApi = 0
+        for i in modelCandidates {
+            if i.Vaga == "API .NET" {
+                sumAgeApi = sumAgeApi + makeFirstWordAndInteger(i.Idade)
+            }
+        }
+        return sumAgeApi
+    }
+    
+    func youngerCandidateApi() -> String {
+        var youngerCandidate = ""
+        var youngerApi = 100
+        for i in modelCandidates {
+            if i.Vaga == "API .NET" {
+                if youngerApi > makeFirstWordAndInteger(i.Idade) {
+                    youngerApi = makeFirstWordAndInteger(i.Idade)
+                    youngerCandidate = i.Nome
+                }
+            }
+        }
+        return youngerCandidate
+    }
+    
+    func middleAgesQA() -> Double {
+        var numbersOfQA = 0
+        var sumAgeQA = 0
+        
+        for i in modelCandidates {
+            if i.Vaga == "QA" {
+                numbersOfQA += 1
+                sumAgeQA += makeFirstWordAndInteger(i.Idade)
+            }
+        }
+        let middleAges = Double(sumAgeQA/numbersOfQA)
+        return middleAges
+    }
+    
+    func statesList() -> Int {
+        var numState = 0
+        var stateList = Set<String>()
+        for state in modelCandidates {
+            if state.Vaga == "API .NET" || state.Vaga == "iOS" || state.Vaga == "QA"{
+                stateList.insert(state.Estado)
+            }
+        }
+        numState = stateList.count
+        return numState
+    }
+    
+    func calculatePercentages() -> (String, String, String) {
         let total = Double(modelCandidates.count)
         let (iosCount, apiCount, qaCount) = vacancyCounts(from: modelCandidates)
         
@@ -33,16 +102,24 @@ class HomeViewModel {
         let calculatedApiPercentage = String(format: "Candidatos API .NET: %.2f%%", apiCount/total*100)
         let calculatedQAPercentage = String(format: "Candidatos QA: %.2f%%", qaCount/total*100)
         
-        completion(calculatedIosPercentage, calculatedApiPercentage, calculatedQAPercentage)
+        return(calculatedIosPercentage, calculatedApiPercentage, calculatedQAPercentage)
     }
     
-    func findIosInstructor(from candidates: [Candidate]) -> Candidate? {
+    func findInstructors() -> (String, String) {
+        let iOSInstructor = findIosInstructor(from: modelCandidates)
+        let apiInstructor = findAPIInstructor(from: modelCandidates)
+        let iOS = iOSInstructor?.Nome ?? "Nenhum instrutor de iOS encontrado"
+        let api = apiInstructor?.Nome ?? "Nenhum instrutor de API.NET encontrado"
+        return(iOS, api)
+    }
+    
+    private func findIosInstructor(from candidates: [Candidate]) -> Candidate? {
         var iOSIntructor: Candidate?
         for candidate in candidates {
-            if candidate.vacancy != "iOS" && candidate.state == "SC"{
-                if makeFirstWordAndInteger(candidate.age) > 20 {
-                    if isPrime(makeFirstWordAndInteger(candidate.age)) {
-                        if lastName(candidate.name).first == "V" {
+            if candidate.Vaga != "iOS" && candidate.Estado == "SC"{
+                if makeFirstWordAndInteger(candidate.Idade) > 20 {
+                    if isPrime(makeFirstWordAndInteger(candidate.Idade)) {
+                        if lastName(candidate.Nome).first == "V" {
                             iOSIntructor = candidate
                             break
                         }
@@ -53,14 +130,14 @@ class HomeViewModel {
         return iOSIntructor
     }
     
-    func findAPIInstructor(from candidates: [Candidate]) -> Candidate? {
+    private func findAPIInstructor(from candidates: [Candidate]) -> Candidate? {
         var apiInstructor: Candidate?
         for candidate in candidates {
-            if candidate.vacancy != "API.NET" && candidate.state == "SC" {
-                if makeFirstWordAndInteger(candidate.age) < 31 && makeFirstWordAndInteger(candidate.age) > 21 {
-                    if isPrime(makeFirstWordAndInteger(candidate.age)) {
-                        if lastName(candidate.name).last == "k" {
-                            if countVolwels(input: firstName(candidate.name)) == 3 {
+            if candidate.Vaga != "API .NET" && candidate.Estado == "SC" {
+                if makeFirstWordAndInteger(candidate.Idade) < 31 && makeFirstWordAndInteger(candidate.Idade) > 21 {
+                    if isPrime(makeFirstWordAndInteger(candidate.Idade)) {
+                        if lastName(candidate.Nome).last == "k" {
+                            if countVolwels(input: firstName(candidate.Nome)) == 3 {
                                 apiInstructor = candidate
                                 break
                             }
@@ -117,8 +194,8 @@ class HomeViewModel {
         var qaCount: Double = 0
         
         for candidate in candidates {
-            switch candidate.vacancy {
-            case "API.NET":
+            switch candidate.Vaga {
+            case "API .NET":
                 apiCount += 1
             case "iOS":
                 iosCount += 1
