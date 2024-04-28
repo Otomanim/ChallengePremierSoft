@@ -9,8 +9,8 @@ import Foundation
 
 struct Candidate {
     
-    let name: String
-    let vacancy: String
-    let age: String
-    let state: String
+    let Nome: String
+    let Vaga: String
+    let Idade: String
+    let Estado: String
 }
