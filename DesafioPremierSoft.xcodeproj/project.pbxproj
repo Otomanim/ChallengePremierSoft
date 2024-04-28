@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E2AB39A2BDC187B00253A4A /* HomeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2AB3992BDC187B00253A4A /* HomeFactory.swift */; };
 		2EEB88822BD93DF50098E56B /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEB88812BD93DF50098E56B /* ListViewController.swift */; };
 		2EEB88842BD959560098E56B /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEB88832BD959560098E56B /* NetworkService.swift */; };
 		2EF030FE2BD7F60000F597AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF030FD2BD7F60000F597AA /* AppDelegate.swift */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2E2AB3992BDC187B00253A4A /* HomeFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFactory.swift; sourceTree = "<group>"; };
 		2EEB88812BD93DF50098E56B /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		2EEB88832BD959560098E56B /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		2EF030FA2BD7F60000F597AA /* DesafioPremierSoft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesafioPremierSoft.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -159,6 +161,7 @@
 				2EF031322BD8161B00F597AA /* HomeModel.swift */,
 				2EEB88812BD93DF50098E56B /* ListViewController.swift */,
 				2EEB88832BD959560098E56B /* NetworkService.swift */,
+				2E2AB3992BDC187B00253A4A /* HomeFactory.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				2EF031312BD8160C00F597AA /* HomeViewModel.swift in Sources */,
 				2EF031002BD7F60000F597AA /* SceneDelegate.swift in Sources */,
 				2EEB88822BD93DF50098E56B /* ListViewController.swift in Sources */,
+				2E2AB39A2BDC187B00253A4A /* HomeFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
