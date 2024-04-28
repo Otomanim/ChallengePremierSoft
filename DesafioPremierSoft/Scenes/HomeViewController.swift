@@ -70,6 +70,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureButton(listOfCandidates, text: "Lista de Candidatos", color: .lightGray, action: #selector(clickedButtom))
+        title = "Home"
         resultLabel.text = "Resultado:"
         setupUI()
         homeView.fetchData()
@@ -79,8 +80,8 @@ class HomeViewController: UIViewController {
     @objc func clickedButtom() {
         print("Botão Clicado!")
         
-        //        let novaViewController = OutraViewController()
-        //        navigationController?.pushViewController(novaViewController, animated: true)
+        let novaViewController = ListViewController()
+        navigationController?.pushViewController(novaViewController, animated: true)
     }
     private func setupLabels() {
         let (iOSLabel, apiLabel, qaLabel) = homeView.calculatePercentages()
