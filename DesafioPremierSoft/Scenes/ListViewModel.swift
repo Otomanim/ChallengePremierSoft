@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+protocol ListViewModelProtocol: AnyObject {
+    
+}
+
+class ListViewModel: ListViewModelProtocol {
+    
+}
