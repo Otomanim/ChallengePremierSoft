@@ -8,6 +8,9 @@
 import UIKit
 
 class CandidateCell: UITableViewCell {
+    static var indentifier: String {
+        String(describing: self)
+    }
 
     private let candidateIsNameLabel: UILabel = {
         let label = UILabel()

@@ -15,6 +15,7 @@ class ListViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = 100
+        tableView.register(CandidateCell.self, forCellReuseIdentifier: CandidateCell.indentifier)
         tableView.backgroundColor = .opaqueSeparator
         return tableView
     }()
