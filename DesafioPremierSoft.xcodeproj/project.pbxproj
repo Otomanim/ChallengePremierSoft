@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2E2AB39A2BDC187B00253A4A /* HomeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2AB3992BDC187B00253A4A /* HomeFactory.swift */; };
+		2E8394E22BE564A400B90D94 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8394E12BE564A400B90D94 /* ListViewModel.swift */; };
 		2EEB88822BD93DF50098E56B /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEB88812BD93DF50098E56B /* ListViewController.swift */; };
 		2EEB88842BD959560098E56B /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEB88832BD959560098E56B /* NetworkService.swift */; };
 		2EF030FE2BD7F60000F597AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF030FD2BD7F60000F597AA /* AppDelegate.swift */; };
@@ -42,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		2E2AB3992BDC187B00253A4A /* HomeFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFactory.swift; sourceTree = "<group>"; };
+		2E8394E12BE564A400B90D94 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 		2EEB88812BD93DF50098E56B /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		2EEB88832BD959560098E56B /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		2EF030FA2BD7F60000F597AA /* DesafioPremierSoft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesafioPremierSoft.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -162,6 +164,7 @@
 				2EEB88812BD93DF50098E56B /* ListViewController.swift */,
 				2EEB88832BD959560098E56B /* NetworkService.swift */,
 				2E2AB3992BDC187B00253A4A /* HomeFactory.swift */,
+				2E8394E12BE564A400B90D94 /* ListViewModel.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E8394E22BE564A400B90D94 /* ListViewModel.swift in Sources */,
 				2EF031332BD8161B00F597AA /* HomeModel.swift in Sources */,
 				2EF031022BD7F60000F597AA /* HomeViewController.swift in Sources */,
 				2EEB88842BD959560098E56B /* NetworkService.swift in Sources */,
