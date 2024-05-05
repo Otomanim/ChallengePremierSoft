@@ -88,6 +88,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E8394E32BE7621700B90D94 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				2EF031012BD7F60000F597AA /* HomeViewController.swift */,
+				2EF031302BD8160C00F597AA /* HomeViewModel.swift */,
+				2EF031322BD8161B00F597AA /* HomeModel.swift */,
+				2E2AB3992BDC187B00253A4A /* HomeFactory.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		2E8394E42BE7622000B90D94 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				2EEB88812BD93DF50098E56B /* ListViewController.swift */,
+				2E8394E12BE564A400B90D94 /* ListViewModel.swift */,
+				2EF031342BD8162100F597AA /* Cell */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
 		2EF030F12BD7F60000F597AA = {
 			isa = PBXGroup;
 			children = (
@@ -157,14 +178,9 @@
 		2EF0312F2BD7F92B00F597AA /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				2EF031342BD8162100F597AA /* Cell */,
-				2EF031012BD7F60000F597AA /* HomeViewController.swift */,
-				2EF031302BD8160C00F597AA /* HomeViewModel.swift */,
-				2EF031322BD8161B00F597AA /* HomeModel.swift */,
-				2EEB88812BD93DF50098E56B /* ListViewController.swift */,
+				2E8394E42BE7622000B90D94 /* List */,
+				2E8394E32BE7621700B90D94 /* Home */,
 				2EEB88832BD959560098E56B /* NetworkService.swift */,
-				2E2AB3992BDC187B00253A4A /* HomeFactory.swift */,
-				2E8394E12BE564A400B90D94 /* ListViewModel.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
