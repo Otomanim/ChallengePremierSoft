@@ -9,15 +9,26 @@ import Foundation
 
 protocol ListViewModelProtocol: AnyObject {
     func organizeAlphabetically()
+    func fetchData()
 }
 
 class ListViewModel: ListViewModelProtocol {
     
-    private var modelCandidates: [Candidate] = []
+    var modelCandidates: [Candidate] = []
+    
+    private let service: NetworkService
+    
+    init(service: NetworkService) {
+        self.service = service
+    }
     
     func organizeAlphabetically() {
         modelCandidates.sort { $0.Nome.localizedCaseInsensitiveCompare($1.Nome) == .orderedAscending }
        
+    }
+    
+    func fetchData() {
+        self.modelCandidates = service.getCandidates()
     }
     
     
