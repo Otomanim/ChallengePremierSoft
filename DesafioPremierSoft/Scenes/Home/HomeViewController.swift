@@ -80,7 +80,7 @@ class HomeViewController: UIViewController {
     @objc func clickedButtom() {
         print("Botão Clicado!")
         
-        let novaViewController = ListViewController()
+        let novaViewController = ListFactory.makeModule()
         navigationController?.pushViewController(novaViewController, animated: true)
     }
     private func setupLabels() {
