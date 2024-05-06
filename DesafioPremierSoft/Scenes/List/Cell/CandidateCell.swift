@@ -37,10 +37,10 @@ class CandidateCell: UITableViewCell {
     }()
     
     private lazy var leftStackView: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [candidateIsNameLabel, candidatesTypeOfVacancyLabel])
+        let stack = UIStackView(arrangedSubviews: [candidateIsNameLabel, candidateAtStateLabel])
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
-        stack.spacing = 20
+        stack.spacing = 5
         return stack
     }()
     
@@ -48,7 +48,7 @@ class CandidateCell: UITableViewCell {
         let stack = UIStackView(arrangedSubviews: [candidateIsAgeLabel, candidatesTypeOfVacancyLabel])
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
-        stack.spacing = 20
+        stack.spacing = 5
         return stack
     }()
     
@@ -56,7 +56,7 @@ class CandidateCell: UITableViewCell {
         let stack = UIStackView(arrangedSubviews: [leftStackView, rightStackView])
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.distribution = .fillProportionally
-        stack.spacing = 10
+        stack.spacing = 0
         return stack
     }()
     

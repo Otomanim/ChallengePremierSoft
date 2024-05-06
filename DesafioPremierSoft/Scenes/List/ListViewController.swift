@@ -9,12 +9,23 @@ import UIKit
 
 class ListViewController: UIViewController {
     
+    private let viewModel: ListViewModel
+    
+    init(viewModel: ListViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .insetGrouped)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.rowHeight = 100
+        tableView.rowHeight = 80
         tableView.register(CandidateCell.self, forCellReuseIdentifier: CandidateCell.indentifier)
         tableView.backgroundColor = .opaqueSeparator
         return tableView
@@ -24,6 +35,8 @@ class ListViewController: UIViewController {
         super.viewDidLoad()
         title = "Lista de Candidatos"
         setupUi()
+        viewModel.fetchData()
+        viewModel.organizeAlphabetically()
     }
     
     private func setupUi() {
@@ -40,14 +53,20 @@ class ListViewController: UIViewController {
 }
 
 extension ListViewController: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return viewModel.modelCandidates.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        if let cell = tableView.dequeueReusableCell(withIdentifier: CandidateCell.indentifier) as? CandidateCell {
+            cell.conigureLabels(with: viewModel.modelCandidates[indexPath.row])
+            return cell
+        } else {
+            return UITableViewCell()
+        }
     }
-    
-    
 }
