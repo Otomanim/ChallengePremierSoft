@@ -62,11 +62,10 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: CandidateCell.indentifier) as? CandidateCell {
-            cell.conigureLabels(with: viewModel.modelCandidates[indexPath.row])
-            return cell
-        } else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: CandidateCell.indentifier) as? CandidateCell else {
             return UITableViewCell()
         }
+        cell.conigureLabels(with: viewModel.modelCandidates[indexPath.row])
+        return cell
     }
 }
